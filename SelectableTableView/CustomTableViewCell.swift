@@ -24,7 +24,7 @@ class CustomTableViewCell: UITableViewCell {
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
-        self.setupCellUI(selected: selected)
+//        self.setupCellUI(selected: selected)
     }
     
     func setupCellUI(selected: Bool) {
@@ -36,7 +36,7 @@ class CustomTableViewCell: UITableViewCell {
             imageName = "icons8-checked"
         }
         
-        iconImageView.image = UIImage(named: imageName)
+        self.iconImageView.image = UIImage(named: imageName)
     }
     
     static func getIdentifier() -> String {

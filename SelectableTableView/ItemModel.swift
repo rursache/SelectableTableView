@@ -9,8 +9,7 @@
 import Foundation
 import UIKit
 
-class ItemModel: NSObject {
-    
+class ItemModel: NSObject, NSCoding {
     var name: String = "Empty Name"
     var id: Int = 0
     var selected: Bool = false
@@ -28,5 +27,17 @@ class ItemModel: NSObject {
         
         self.id = id
         self.selected = selected
+    }
+    
+    func encode(with aCoder: NSCoder) {
+        aCoder.encode(name, forKey:"name")
+        aCoder.encode(id, forKey:"itemId")
+        aCoder.encode(selected, forKey:"selected")
+    }
+    
+    required init(coder aDecoder: NSCoder) {
+        self.name = aDecoder.decodeObject(forKey: "name") as! String
+        self.id = aDecoder.decodeInteger(forKey: "itemId")
+        self.selected = aDecoder.decodeBool(forKey: "selected")
     }
 }
